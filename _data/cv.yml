@@ -15,17 +15,16 @@ cv:
       - institution: Massachusetts Institute of Technology
         location: Cambridge, MA
         url: https://www.eecs.mit.edu/
-        area: Computer Science
+        area: Computer Science (Course 6-4, Artificial Intelligence and Decision Making)
         degree: B.S.
-        start_date: 2023-09-01
+        start_date: 2024-09-01
         end_date: 2027-05-01
         highlights:
           - "GPA 5.0 / 5.0. Expected May 2027."
-          - "**ML:** Deep Learning (G), Reinforcement Learning (G), Computer Vision (G), Introduction to Inference (G), Generative AI / Diffusion Lab, NLP\\*, TinyML\\*, Robotic Manipulation\\*"
-          - "**Theory:** Design & Analysis of Algorithms, Theory of Computation, Abstract Algebra I & II, Set Theory & Logic, Differential Equations"
-          - "**Systems:** Computer Systems Engineering, Computation Structures, Intro to C & Assembly, Computer Graphics\\*"
-          - "(G) = graduate-level; \\* = in progress"
-
+          - "**ML / AI:** 6.7960 Deep Learning, 6.7920 Reinforcement Learning: Foundations and Methods, 6.8300 Advances in Computer Vision, 6.7800 Inference and Information, 6.S184 Generative AI / Diffusion Lab (IAP); in progress: 6.8611 Natural Language Processing, 6.5940 TinyML and Efficient Deep Learning Computing, 6.4210 Robotic Manipulation"
+          - "**Theory and math:** 6.1220 Design and Analysis of Algorithms, 18.404 Theory of Computation, 18.701 Algebra I, 18.702 Algebra II, 18.510 Introduction to Mathematical Logic and Set Theory, 18.03 Differential Equations"
+          - "**Systems:** 6.1800 Computer Systems Engineering, 6.1910 Computation Structures, 6.1903 Introduction to Programming in C and Assembly, 6.1010 Fundamentals of Programming; in progress: 6.4400 Computer Graphics"
+          - "**Other:** 6.4590 Foundations of Information Policy, 24.09 Minds and Machines, 14.01 Principles of Microeconomics, 21H.152 Modern China, 24.02 Moral Problems and the Good Life"
     Experience:
       - company: Hudson River Trading
         position: Algo Dev Intern (incoming)
@@ -147,15 +146,16 @@ cv:
         date: 2024-02
         url: https://arxiv.org/abs/2402.03522
 
-    Honors and Awards:
+    Honors:
       - bullet: "**Putnam Mathematical Competition** — Top 220 (2025), Top 300 (2026)"
-      - bullet: "**Math Prize for Girls** — National Top 12 (2023)"
-      - bullet: "**Mathematical Olympiad Program (MOP)** — national top 60 (2022)"
-      - bullet: "**USAJMO Winner; USAMO Qualifier**"
+      - bullet: "**High school:** Mathematical Olympiad Program (MOP) 2022, national top 60; USAJMO winner; USAMO qualifier; Math Prize for Girls national top 12 (2023)"
     Teaching:
-      - bullet: "**Teaching Assistant, 18.404 Theory of Computation** — MIT, Fall 2026"
+      - bullet: "**Teaching Assistant, 18.404 Theory of Computation** — MIT, Fall 2026 (current)"
       - bullet: "**Teaching Assistant, Athemath** — 2022–2024"
       - bullet: "**Curriculum Developer, AlphaStar Academy** — 2021–2022"
+
+    Activities:
+      - bullet: "**MIT Syncopasian** — a cappella group ([syncopasian.com](https://syncopasian.com/))"
 
     Skills:
       - name: Programming
@@ -185,6 +185,9 @@ design:
   section_titles:
     space_above: 0.35cm
     space_below: 0.2cm
+  typography:
+    font_size:
+      body: 9.5pt
   sections:
-    space_between_regular_entries: 0.8em
+    space_between_regular_entries: 0.7em
     show_time_spans_in: [none]

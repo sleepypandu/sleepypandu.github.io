@@ -1,12 +1,12 @@
 ---
 layout: page
 title: RL distillation of a diffusion motion planner
-description: 6.7920 Reinforcement Learning. Distilling a text-to-motion diffusion planner into a lightweight autoregressive generator–selector trained with RL, and a careful post-mortem of why it's hard.
+description: 6.7920 Reinforcement Learning · Fall 2025. Distilling a text-to-motion diffusion planner into a lightweight autoregressive generator–selector trained with RL, and a careful post-mortem of why it's hard.
 importance: 3
 category: coursework
 ---
 
-**6.7920 Reinforcement Learning: Foundations and Methods.** Final project with Jessica Wan.
+**6.7920 Reinforcement Learning: Foundations and Methods, Fall 2025.** Final project with Jessica Wan.
 
 Text-to-motion diffusion models like MDM and CLoSD produce expressive human motion, but need hundreds of denoising steps per sequence, which rules them out for latency-sensitive settings like robotics simulators. We tried to distill CLoSD into a cheap, controllable **autoregressive student** trained with reinforcement learning.
 

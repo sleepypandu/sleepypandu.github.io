@@ -12,6 +12,9 @@ design:
   section_titles:
     space_above: 0.35cm
     space_below: 0.2cm
+  typography:
+    font_size:
+      body: 9.5pt
   sections:
-    space_between_regular_entries: 0.8em
+    space_between_regular_entries: 0.7em
     show_time_spans_in: [none]
