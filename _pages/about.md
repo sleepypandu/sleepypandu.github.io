@@ -23,12 +23,12 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi! I'm Raina, an undergraduate at MIT studying computer science (B.S. expected May 2027). I work on reinforcement learning and post-training for LLM reasoning, and more broadly on RL for generative models.
+Hi! I'm Raina, an undergraduate at MIT studying computer science (expected to graduate May 2027). I work on reinforcement learning and post-training for LLM reasoning, and more broadly on RL for generative models.
 
-Most recently I was a research intern at IBM Research, where I ran ablations and reproductions of self-distillation pipelines for LLM reasoning, characterized their failure modes, and studied where privileged-teacher signal localizes within a rollout across Qwen3 models. Before that, I worked on RL fine-tuning of flow models at the MIT-IBM Watson AI Lab, sketch-to-3D retrieval for generative design at the MIT DeCoDE Lab, and attestation for AI agents negotiating inside trusted execution environments at the MIT Media Lab. I got my start in research through MIT PRIMES-USA, studying influence prediction in collaboration networks.
+Most recently, I was a research intern at IBM Research, where I ran ablations and reproductions of self-distillation pipelines for LLM reasoning, characterized their failure modes, and studied where privileged-teacher signal localizes within a rollout across Qwen3 models. Before that, I worked on RL fine-tuning of flow models at the MIT-IBM Watson AI Lab, sketch-to-3D retrieval for generative design at the MIT DeCoDE Lab, and attestation for AI agents negotiating inside trusted execution environments at the MIT Media Lab. I got my start in research through MIT PRIMES-USA, studying influence prediction in collaboration networks.
 
-On the industry side, I've interned at [Talkdesk](https://www.talkdesk.com/) (multi-agent systems) and [Hudson River Trading](https://www.hudsonrivertrading.com/) (WITTI). In 2027 I'll be joining [Applied Compute](https://www.appliedcompute.com/) as a research intern and returning to HRT as an algo dev intern.
+Over the past few summers, I've interned at [Talkdesk](https://www.talkdesk.com/) (multi-agent systems) and [Hudson River Trading](https://www.hudsonrivertrading.com/) (WITTI). In spring 2027 I'll be joining [Applied Compute](https://www.appliedcompute.com/) as a research intern and returning to HRT for the summer as an Algo Dev intern.
 
-I'm currently a TA for [18.404 Theory of Computation](https://math.mit.edu/~sipser/18404/). I enjoy doing math: in high school I did competitions (MOP, USAJMO winner, Math Prize for Girls top 12), and these days I still take the Putnam (top 220). I also sing in [MIT Syncopasian](https://syncopasian.com/), an a cappella group.
+I'm currently a TA for [18.404 Theory of Computation](https://math.mit.edu/~sipser/18404/). In high school I did competition math (MOP, USAJMO winner, Math Prize for Girls top 12), and these days I still take the Putnam for fun (top 300). I also sing in [MIT Syncopasian](https://syncopasian.com/), one of MIT's many a cappella groups.
 
 See my [projects](/projects/) for details on my research and coursework, or my [CV](/cv/) for the full picture.
