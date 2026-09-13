@@ -2,14 +2,16 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Course materials, schedules, and resources for classes taught.
+description: Courses and programs I've taught for.
 nav: true
-nav_order: 6
-calendar: true
+nav_order: 4
 ---
 
-This page displays a collection of courses with detailed schedules, materials, and resources. You can organize your courses by years, terms, or topics.
+**Teaching Assistant, [18.404 Theory of Computation](https://math.mit.edu/~sipser/18404/)** — MIT, Fall 2026
+: Automata, computability, and complexity theory.
 
-{% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %}
+**Teaching Assistant, [Athemath](https://athemath.org/)** — 2022–2024
+: Olympiad-style mathematics for high-school students.
 
-{% include courses.liquid %}
+**Curriculum Developer, [AlphaStar Academy](https://alphastar.academy/)** — 2021–2022
+: Wrote course material for competition mathematics.

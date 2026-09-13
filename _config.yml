@@ -7,20 +7,19 @@ first_name: Raina
 middle_name: T.
 last_name: Wu
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Email is the best way to reach me.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Hi! I'm Raina Wu, a current student at MIT studying Artificial Intelligence and Decision Making (Course 6-4). Last summer, I was an intern at IBM Research investigating self distillation. I currently work on post-training and reinforcement learning for LLMs and am exploring areas in robotics and computer vision.
+  Raina Wu is an undergraduate at MIT studying computer science. She works on reinforcement learning and post-training for LLM reasoning, RL for generative models, and computer vision.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
-keywords: reinforcement learning, post-training, LLM reasoning, computer science, self distillation
+keywords: Raina Wu, MIT, reinforcement learning, post-training, LLM reasoning, self-distillation, computer vision, machine learning
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: ⚛️ # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 apple_touch_icon: # image name in /assets/img/ (or a rooted path / absolute URL) used for iOS home-screen bookmarks; needs a real 180x180 PNG, since Safari ignores the emoji favicon above. Left empty, iOS falls back to a screenshot of the page.
 
-url: https://alshedivat.github.io # the base hostname & protocol for your site
-baseurl: /al-folio # the subpath of your site, e.g. /blog/. Leave blank for root
+url: https://sleepypandu.github.io # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
@@ -99,7 +98,7 @@ navbar_fixed: true
 footer_fixed: true
 search_enabled: true
 socials_in_search: true
-posts_in_search: true
+posts_in_search: false
 bib_search: true
 
 # Dimensions
@@ -136,8 +135,8 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: al-folio # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_name: blog # blog_name will be displayed in your blog page
+blog_description: notes and writing
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 
@@ -221,6 +220,7 @@ kramdown:
 include: ["_pages"]
 exclude:
   - AGENTS.md
+  - info/
   - al-folio-upgrade-report.md
   - bin/
   - CLAUDE.md
@@ -234,7 +234,6 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
-  - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
   - readme_preview/
@@ -338,8 +337,8 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["formatting", "images", "links", "math", "code", "blockquotes"] # these tags will be displayed on the front page of your blog
-display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
+display_tags: [] # these tags will be displayed on the front page of your blog
+display_categories: [] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
@@ -347,7 +346,7 @@ display_categories: ["external-services"] # these categories will be displayed o
 
 scholar:
   last_name: [Wu]
-  first_name: [Raina, T.]
+  first_name: [Raina, R., R. T.]
 
   style: apa
   locale: en

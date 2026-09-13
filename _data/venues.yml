@@ -1,9 +1,15 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+"ACL":
+  url: https://aclanthology.org/
+  color: "#ed1c24"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"Physica A":
+  url: https://www.sciencedirect.com/journal/physica-a-statistical-mechanics-and-its-applications
+  color: "#f47b20"
 
-"Vision":
-  color: "#009f36"
+"ASME IDETC":
+  url: https://event.asme.org/IDETC-CIE
+  color: "#005a8b"
+
+"arXiv":
+  url: https://arxiv.org/
+  color: "#b31b1b"

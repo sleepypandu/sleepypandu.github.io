@@ -1,189 +1,190 @@
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
-  image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  name: Raina Wu
+  email: rwu986@mit.edu
+  location: Cambridge, MA
+  website: https://sleepypandu.github.io
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
     - network: GitHub
-      username: example
+      username: sleepypandu
     - network: LinkedIn
-      username: example
-
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+      username: raina-wu-890758326
 
   sections:
     Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
+      - institution: Massachusetts Institute of Technology
+        location: Cambridge, MA
+        url: https://www.eecs.mit.edu/
+        area: Computer Science
+        degree: B.S.
+        start_date: 2023-09-01
+        end_date: 2027-05-01
         highlights:
-          - Description 1.
-          - Description 2.
-
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
-        highlights:
-          - Description 1.
-          - Description 2.
+          - "GPA 5.0 / 5.0. Expected May 2027."
+          - "**ML:** Deep Learning (G), Reinforcement Learning (G), Computer Vision (G), Introduction to Inference (G), Generative AI / Diffusion Lab, NLP\\*, TinyML\\*, Robotic Manipulation\\*"
+          - "**Theory:** Design & Analysis of Algorithms, Theory of Computation, Abstract Algebra I & II, Set Theory & Logic, Differential Equations"
+          - "**Systems:** Computer Systems Engineering, Computation Structures, Intro to C & Assembly, Computer Graphics\\*"
+          - "(G) = graduate-level; \\* = in progress"
 
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: Hudson River Trading
+        position: Algo Dev Intern (incoming)
+        location: New York, NY
+        start_date: 2027-06-01
+        end_date: 2027-08-01
+
+      - company: Applied Compute
+        position: Research Intern (incoming)
+        start_date: 2027-01-01
+        end_date: 2027-05-01
+
+      - company: IBM Research
+        position: Research Intern — RL for LLM reasoning
+        start_date: 2026-06-01
+        end_date: 2026-08-01
         highlights:
-          - Relativity
-          - Description 2.
+          - Ran ablations and reproductions of existing self-distillation pipelines and uncovered failure modes of OPSD and SDPO.
+          - Ran a prefix-advantage study across Qwen3-1.7B/4B/8B characterizing where privileged-teacher signal localizes in a rollout. Submitted to the NeurIPS 2026 workshop on Transitioning from Pre-Training to Post-Training.
+          - Investigating other uses of distillation — whether privileged information can be used in a helpful, non-cheating way.
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: Hudson River Trading
+        position: WITTI Wintern — quantitative finance
+        location: New York, NY
+        start_date: 2026-01-01
+        end_date: 2026-01-31
+
+      - company: MIT-IBM Watson AI Lab
+        position: Researcher — RL for generative models
+        location: Cambridge, MA
+        start_date: 2025-05-01
+        end_date: 2026-05-01
         highlights:
-          - Description 1.
-          - Description 2.
+          - Investigated RL fine-tuning of flow models for molecule and crystal generation.
+          - Co-author on *Tailored primitive initialization is the secret key to reinforcement learning* (ACL 2026); built the embedding-similarity pipeline used for the paper's diversity analysis, showing Tailor's warm-start data is more reasoning-diverse than the Standard-CoT and 4-STaR baselines.
 
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
+      - company: Talkdesk
+        position: Software Engineering Intern — multi-agent systems
+        start_date: 2025-06-01
+        end_date: 2025-08-01
         highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - Prototyped agentic user memory for a multi-agent system and a multi-agent evaluation framework for a production RAG pipeline.
 
-    Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - company: MIT DeCoDE Lab
+        position: Researcher — generative AI for design
+        location: Cambridge, MA
+        start_date: 2025-01-01
+        end_date: 2025-01-31
+        highlights:
+          - Built the sketch-to-3D retrieval pipeline (2D sketch → nearest 3D car mesh) and benchmarked retrieval models and similarity metrics; co-author on the resulting ASME IDETC-CIE 2025 paper.
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - company: MIT Media Lab
+        position: Researcher — AI security & agents
+        location: Cambridge, MA
+        start_date: 2024-09-01
+        end_date: 2025-05-01
+        highlights:
+          - Built attestation for AI agents negotiating inside GPU-backed trusted execution environments; wrote circom circuits producing zkSNARK proofs that the negotiation ran as specified.
+          - Built tool-using agents (Gmail, Google Calendar, Shopify APIs) and an evaluation harness for multi-agent negotiation.
+
+      - company: MIT PRIMES-USA
+        position: Researcher — network science
+        start_date: 2023-01-01
+        end_date: 2024-12-01
+        highlights:
+          - Proposed and evaluated an algorithm combining path-based link prediction with influence-maximization heuristics to identify future vital nodes in weighted collaboration networks.
+          - Introduced RA-2 and quasi-local RA-2, new link-prediction similarity metrics; built the simulation and evaluation pipeline (7 link-prediction metrics × 12 centrality measures × 8 selection algorithms, under simple and complex contagion); wrote the initial manuscript.
+          - Co-author (alphabetical order) on papers in *Physica A* (2026) and on arXiv (2024).
 
     Publications:
-      - title: Zur Elektrodynamik bewegter Körper
+      - title: Tailored primitive initialization is the secret key to reinforcement learning
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+          - Y. Yao
+          - G. Zeng
+          - R. Wu
+          - Y. Zhang
+          - D. Zhao
+          - Z.-W. Hong
+          - C. Gan
+        publisher: Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics (ACL 2026), Volume 1, pp. 33300–33318
+        journal: ACL 2026 (Volume 1, Long Papers), pp. 33300–33318
+        releaseDate: 2026-08-01
+        date: 2026-08
+        url: https://doi.org/10.18653/v1/2026.acl-long.1537
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
+      - title: "Influence prediction in collaboration networks: An empirical study on arXiv"
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+          - M. Lin
+          - L. P. Schaposnik
+          - R. Wu
+        publisher: "Physica A: Statistical Mechanics and its Applications, 689, 131451"
+        journal: "Physica A: Statistical Mechanics and its Applications, 689, 131451"
+        releaseDate: 2026-01-01
+        date: 2026
+        url: https://doi.org/10.1016/j.physa.2026.131451
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
+      - title: "AI agents in engineering design: A multi-agent framework for aesthetic and aerodynamic car design"
         authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+          - M. Elrefaie
+          - J. Qian
+          - R. Wu
+          - Q. Chen
+          - A. Dai
+          - F. Ahmed
+        publisher: Proceedings of the ASME 2025 IDETC-CIE, Volume 3B, 51st Design Automation Conference, V03BT03A048
+        journal: ASME 2025 IDETC-CIE, Volume 3B, 51st Design Automation Conference
+        releaseDate: 2025-08-01
+        date: 2025-08
+        url: https://doi.org/10.1115/DETC2025-169682
+
+      - title: "The social sphere model: Heuristic influence prediction in evolving networks"
+        authors:
+          - M. Lin
+          - L. P. Schaposnik
+          - R. Wu
+        publisher: arXiv preprint arXiv:2402.03522
+        journal: arXiv preprint arXiv:2402.03522
+        releaseDate: 2024-02-01
+        date: 2024-02
+        url: https://arxiv.org/abs/2402.03522
+
+    Honors and Awards:
+      - bullet: "**Putnam Mathematical Competition** — Top 220 (2025), Top 300 (2026)"
+      - bullet: "**Math Prize for Girls** — National Top 12 (2023)"
+      - bullet: "**Mathematical Olympiad Program (MOP)** — national top 60 (2022)"
+      - bullet: "**USAJMO Winner; USAMO Qualifier**"
+    Teaching:
+      - bullet: "**Teaching Assistant, 18.404 Theory of Computation** — MIT, Fall 2026"
+      - bullet: "**Teaching Assistant, Athemath** — 2022–2024"
+      - bullet: "**Curriculum Developer, AlphaStar Academy** — 2021–2022"
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Programming
+        icon: fa-solid fa-code
+        keywords: "Python, C++, Java, SQL"
+        summary: "Python, C++, Java, SQL"
+      - name: ML & Systems
+        icon: fa-solid fa-microchip
+        keywords: "RL for LLMs (PPO, GRPO, OPD, self-distillation), verl, vLLM, LoRA, FSDP, PyTorch, NumPy, multi-node GPU training (LSF), Docker, PostgreSQL, agentic systems, embedding calculations, circom / zkSNARKs"
+        summary: "RL for LLMs (PPO, GRPO, OPD, self-distillation), verl, vLLM, LoRA, FSDP, PyTorch, NumPy, multi-node GPU training (LSF), Docker, PostgreSQL, agentic systems, embedding calculations, circom / zkSNARKs"
+      - name: Languages
+        icon: fa-solid fa-language
+        keywords: "English (native), Mandarin Chinese (fluent)"
+        summary: "English (native), Mandarin Chinese (fluent)"
 
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+# RenderCV design (used by .github/workflows/render-cv.yml; mirrors assets/rendercv/design.yaml)
+design:
+  theme: classic
+  page:
+    size: us-letter
+    top_margin: 0.6in
+    bottom_margin: 0.6in
+    left_margin: 0.7in
+    right_margin: 0.7in
+    show_footer: false
+    show_top_note: false
+  section_titles:
+    space_above: 0.35cm
+    space_below: 0.2cm
+  sections:
+    space_between_regular_entries: 0.8em
+    show_time_spans_in: [none]

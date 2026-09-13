@@ -2,6 +2,16 @@
 design:
   theme: classic
   page:
-    size: a4
+    size: us-letter
+    top_margin: 0.6in
+    bottom_margin: 0.6in
+    left_margin: 0.7in
+    right_margin: 0.7in
     show_footer: false
     show_top_note: false
+  section_titles:
+    space_above: 0.35cm
+    space_below: 0.2cm
+  sections:
+    space_between_regular_entries: 0.8em
+    show_time_spans_in: [none]

@@ -2,10 +2,10 @@
 layout: page
 title: projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Research I've been part of and the larger projects from my coursework. Course projects are described but not posted.
 nav: true
-nav_order: 3
-display_categories: [work, fun]
+nav_order: 2
+display_categories: [research, coursework]
 horizontal: false
 ---
 
