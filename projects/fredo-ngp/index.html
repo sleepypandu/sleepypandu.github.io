@@ -1,0 +1,202 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Hash grid collisions in Instant-NGP | Raina T. Wu </title> <meta name="author" content="Raina T. Wu"> <meta name="description" content="6.8300 Advances in Computer Vision · Spring 2026. Where Instant-NGP's hash collisions land, a two-choice hashing scheme that spreads them out, and a router that tests whether the MLP cares."> <meta name="keywords" content="Raina Wu, MIT, reinforcement learning, post-training, LLM reasoning, self-distillation, computer vision, machine learning"> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://sleepypandu.github.io/projects/fredo-ngp/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Raina</span> T. Wu </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item active"> <a class="nav-link" href="/projects/">projects <span class="sr-only">(current)</span> </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item "> <a class="nav-link" href="/repositories/">repositories </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Hash grid collisions in Instant-NGP</h1> <p class="post-description">6.8300 Advances in Computer Vision · Spring 2026. Where Instant-NGP's hash collisions land, a two-choice hashing scheme that spreads them out, and a router that tests whether the MLP cares.</p> </header> <article> <p><strong>6.8300 Advances in Computer Vision, Spring 2026.</strong> Final project with Michael Yang and Kartik Ramachandrula, on a direction suggested by Frédo Durand in lecture.</p> <p><a href="https://nvlabs.github.io/instant-ngp/" rel="external nofollow noopener" target="_blank">Instant-NGP</a> trains NeRFs in seconds by storing multiresolution voxel features in hash tables, and at fine resolutions those tables <em>necessarily</em> collide: unrelated points share a feature vector, and the projection MLP is left to sort it out. The original paper argues that this is fine because the collisions are pseudorandom. We asked whether that’s actually true, and whether it matters.</p> <p><strong>What we found</strong></p> <ul> <li> <strong>Collisions are not uniform.</strong> We instrumented inference to build per-pixel heatmaps of hash collisions and query pressure. Even after normalizing by query count, collision rate is strongly positively correlated with query pressure (mean pixel-wise correlation ≈ 0.60 across 50 views), so the MLP is under the most strain exactly in the regions that matter most for the render.</li> <li> <strong>Two-choice hashing.</strong> Inspired by balanced allocations, we gave each level two candidate hash salts, profiled per-slot load in a single preprocessing pass, froze it, and routed each point to the lower-load slot during training and inference — no per-render overhead. This made the collision-per-query profile measurably more uniform (≈6% relative reduction in CV, Gini, and a composite uniformity score; 14 of 15 held-out views improved) and weakened the coupling between collision rate and reconstruction residual, while leaving PSNR essentially unchanged.</li> <li> <strong>Adaptive level selection.</strong> To test whether the MLP would <em>use</em> collision information if given it, we added a small router MLP that softmax-weights the per-level features (conditioned on position and collision/query density) instead of concatenating them. Results were comparable to baseline across fox, chair, and ship — evidence that Instant-NGP’s head is already robust to collisions — with a small gain only on the real-world fox scene. Level-ablation probes showed the coarsest levels contribute disproportionately to reconstruction quality, consistent with a coarse-to-fine decoding picture.</li> </ul> <p><strong>Takeaway:</strong> collisions in Instant-NGP are neither benign nor destructive. They’re structured, they correlate with error, and they can be redistributed for free — but the architecture tolerates them as long as coarse-scale structure survives.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Raina T. Wu. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-projects",
+          title: "projects",
+          description: "Research I&#39;ve been part of and the larger projects from my coursework. Course projects are described but not posted.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/projects/";
+          },
+        },{id: "nav-publications",
+          title: "publications",
+          description: "Papers I&#39;ve co-authored, in reverse chronological order.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Education, research and industry experience, publications, teaching, and honors.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-teaching",
+          title: "teaching",
+          description: "Courses and programs I&#39;ve taught for.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "nav-repositories",
+          title: "repositories",
+          description: "My GitHub profile.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/repositories/";
+          },
+        },{id: "books-the-godfather",
+          title: 'The Godfather',
+          description: "",
+          section: "Books",handler: () => {
+              window.location.href = "/books/the_godfather/";
+            },},{id: "news-started-as-a-researcher-at-the-mit-ibm-watson-ai-lab-working-on-rl-for-generative-models-tada",
+          title: 'Started as a researcher at the MIT-IBM Watson AI Lab, working on RL...',
+          description: "",
+          section: "News",},{id: "news-joined-talkdesk-as-a-software-engineering-intern-working-on-multi-agent-systems",
+          title: 'Joined Talkdesk as a software engineering intern working on multi-agent systems.',
+          description: "",
+          section: "News",},{id: "news-our-paper-on-a-multi-agent-framework-for-aesthetic-and-aerodynamic-car-design-appeared-at-asme-idetc-cie-2025",
+          title: 'Our paper on a multi-agent framework for aesthetic and aerodynamic car design appeared...',
+          description: "",
+          section: "News",},{id: "news-spent-january-at-hudson-river-trading-as-a-witti-wintern",
+          title: 'Spent January at Hudson River Trading as a WITTI wintern.',
+          description: "",
+          section: "News",},{id: "news-started-as-a-research-intern-at-ibm-research-working-on-rl-and-self-distillation-for-llm-reasoning",
+          title: 'Started as a research intern at IBM Research, working on RL and self-distillation...',
+          description: "",
+          section: "News",},{id: "news-tailored-primitive-initialization-is-the-secret-key-to-reinforcement-learning-was-published-at-acl-2026",
+          title: 'Tailored primitive initialization is the secret key to reinforcement learning was published at...',
+          description: "",
+          section: "News",},{id: "news-submitted-our-prefix-advantage-study-of-self-distillation-to-the-neurips-2026-workshop-on-transitioning-from-pre-training-to-post-training",
+          title: 'Submitted our prefix-advantage study of self-distillation to the NeurIPS 2026 workshop on Transitioning...',
+          description: "",
+          section: "News",},{id: "news-taing-18-404-theory-of-computation-this-fall",
+          title: 'TAing 18.404 Theory of Computation this fall.',
+          description: "",
+          section: "News",},{id: "news-excited-to-be-joining-applied-compute-as-a-research-intern-in-spring-2027-and-returning-to-hudson-river-trading-as-an-algo-dev-intern-in-summer-2027",
+          title: 'Excited to be joining Applied Compute as a research intern in Spring 2027...',
+          description: "",
+          section: "News",},{id: "projects-sketch-to-3d-retrieval-for-generative-car-design",
+          title: 'Sketch-to-3D retrieval for generative car design',
+          description: "MIT DeCoDE Lab · Jan 2025. A 2D sketch → nearest 3D car mesh retrieval pipeline inside a multi-agent engineering-design framework (ASME IDETC 2025).",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/decode-sketch-to-3d/";
+            },},{id: "projects-hash-grid-collisions-in-instant-ngp",
+          title: 'Hash grid collisions in Instant-NGP',
+          description: "6.8300 Advances in Computer Vision · Spring 2026. Where Instant-NGP&#39;s hash collisions land, a two-choice hashing scheme that spreads them out, and a router that tests whether the MLP cares.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/fredo-ngp/";
+            },},{id: "projects-self-distillation-for-llm-reasoning",
+          title: 'Self-distillation for LLM reasoning',
+          description: "IBM Research · research intern · Jun–Aug 2026. Failure modes of self-distillation pipelines and where privileged-teacher signal lives in a rollout.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ibm-self-distillation/";
+            },},{id: "projects-attestation-for-negotiating-ai-agents",
+          title: 'Attestation for negotiating AI agents',
+          description: "MIT Media Lab · Sep 2024–May 2025. zkSNARK proofs that an agent negotiation inside a GPU-backed TEE ran as specified, plus tool-using agents and an evaluation harness.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/media-lab-agent-attestation/";
+            },},{id: "projects-rl-for-generative-models",
+          title: 'RL for generative models',
+          description: "MIT-IBM Watson AI Lab · May 2025–May 2026. RL fine-tuning of flow models for molecules and crystals, and the diversity analysis behind Tailor (ACL 2026).",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/mit-ibm-rl-generative/";
+            },},{id: "projects-influence-prediction-in-collaboration-networks",
+          title: 'Influence prediction in collaboration networks',
+          description: "MIT PRIMES-USA · 2023–2024. Predicting future vital nodes in weighted collaboration networks by combining link prediction with influence-maximization heuristics (Physica A 2026, arXiv 2024).",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/primes-network-science/";
+            },},{id: "projects-rl-distillation-of-a-diffusion-motion-planner",
+          title: 'RL distillation of a diffusion motion planner',
+          description: "6.7920 Reinforcement Learning. Distilling a text-to-motion diffusion planner into a lightweight autoregressive generator–selector trained with RL, and a careful post-mortem of why it&#39;s hard.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/rl-motion-distillation/";
+            },},{id: "projects-ttarm-training-time-adaptive-rank-modulation",
+          title: 'TTARM — training-time adaptive rank modulation',
+          description: "6.7960 Deep Learning · Fall 2025. Tracking how the effective rank of transformer activations evolves during training, and scheduling regularizers to steer it.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/ttarm/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%72%61%69%6E%61%77%75%30%36@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/sleepypandu", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/raina-wu-890758326", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=YL4z3kgAAAAJ", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/rendercv/rendercv_output/Raina_Wu_CV.pdf", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
