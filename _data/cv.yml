@@ -26,17 +26,6 @@ cv:
           - "**Systems:** 6.1800 Computer Systems Engineering, 6.1910 Computation Structures, 6.1903 Introduction to Programming in C and Assembly, 6.1010 Fundamentals of Programming; in progress: 6.4400 Computer Graphics"
           - "**Other:** 6.4590 Foundations of Information Policy, 24.09 Minds and Machines, 14.01 Principles of Microeconomics, 21H.152 Modern China, 24.02 Moral Problems and the Good Life"
     Experience:
-      - company: Hudson River Trading
-        position: Algo Dev Intern (incoming)
-        location: New York, NY
-        start_date: 2027-06-01
-        end_date: 2027-08-01
-
-      - company: Applied Compute
-        position: Research Intern (incoming)
-        start_date: 2027-01-01
-        end_date: 2027-05-01
-
       - company: IBM Research
         position: Research Intern — RL for LLM reasoning
         start_date: 2026-06-01

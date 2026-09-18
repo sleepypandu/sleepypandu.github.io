@@ -27,7 +27,7 @@ Hi! I'm Raina, an undergraduate at MIT studying computer science (expected to gr
 
 Most recently, I was a research intern at IBM Research, where I ran ablations and reproductions of self-distillation pipelines for LLM reasoning, characterized their failure modes, and studied where privileged-teacher signal localizes within a rollout across Qwen3 models. Before that, I worked on RL fine-tuning of flow models at the MIT-IBM Watson AI Lab, sketch-to-3D retrieval for generative design at the MIT DeCoDE Lab, and attestation for AI agents negotiating inside trusted execution environments at the MIT Media Lab. I got my start in research through MIT PRIMES-USA, studying influence prediction in collaboration networks.
 
-Over the past few summers, I've interned at [Talkdesk](https://www.talkdesk.com/) (multi-agent systems) and [Hudson River Trading](https://www.hudsonrivertrading.com/) (WITTI). In spring 2027 I'll be joining [Applied Compute](https://www.appliedcompute.com/) as a research intern and returning to HRT for the summer as an Algo Dev intern.
+Over the past few summers, I've interned at [Talkdesk](https://www.talkdesk.com/) (multi-agent systems) and [Hudson River Trading](https://www.hudsonrivertrading.com/) (WITTI).
 
 I'm currently a TA for [18.404 Theory of Computation](https://math.mit.edu/~sipser/18404/). In high school I did competition math (MOP, USAJMO winner, Math Prize for Girls top 12), and these days I still take the Putnam for fun (top 300). I also sing in [MIT Syncopasian](https://syncopasian.com/), one of MIT's many a cappella groups.
 
